@@ -35,45 +35,41 @@
 
 <p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
 
-<pre><code>use AppyRules;
+<div class="highlight"><pre><span class="k">use</span> <span class="nx">AppyRules</span><span class="p">;</span>
 
-$stack = new Stack();
+<span class="nv">$stack</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stack</span><span class="p">();</span>
 
-$stack-&gt;addVar('price');
-$stack-&gt;addStatic(180);
-$stack-&gt;addOperator('&gt;');
+<span class="nv">$stack</span><span class="o">-&gt;</span><span class="na">addVar</span><span class="p">(</span><span class="s1">'price'</span><span class="p">);</span>
+<span class="nv">$stack</span><span class="o">-&gt;</span><span class="na">addStatic</span><span class="p">(</span><span class="mi">180</span><span class="p">);</span>
+<span class="nv">$stack</span><span class="o">-&gt;</span><span class="na">addOperator</span><span class="p">(</span><span class="s1">'&gt;'</span><span class="p">);</span>
 
-$stack-&gt;addVar('weight');
-$stack-&gt;addStatic(180);
-$stack-&gt;addOperator('&gt;');
+<span class="nv">$stack</span><span class="o">-&gt;</span><span class="na">addVar</span><span class="p">(</span><span class="s1">'weight'</span><span class="p">);</span>
+<span class="nv">$stack</span><span class="o">-&gt;</span><span class="na">addStatic</span><span class="p">(</span><span class="mi">180</span><span class="p">);</span>
+<span class="nv">$stack</span><span class="o">-&gt;</span><span class="na">addOperator</span><span class="p">(</span><span class="s1">'&gt;'</span><span class="p">);</span>
 
-$stack-&gt;addVar('price');
-$stack-&gt;addStatic(120);
-$stack-&gt;addOperator('&gt;');
+<span class="nv">$stack</span><span class="o">-&gt;</span><span class="na">addVar</span><span class="p">(</span><span class="s1">'price'</span><span class="p">);</span>
+<span class="nv">$stack</span><span class="o">-&gt;</span><span class="na">addStatic</span><span class="p">(</span><span class="mi">120</span><span class="p">);</span>
+<span class="nv">$stack</span><span class="o">-&gt;</span><span class="na">addOperator</span><span class="p">(</span><span class="s1">'&gt;'</span><span class="p">);</span>
 
-$stack-&gt;addVar('price');
-$stack-&gt;addStatic(120);
-$stack-&gt;addOperator('&gt;');
+<span class="nv">$stack</span><span class="o">-&gt;</span><span class="na">addVar</span><span class="p">(</span><span class="s1">'price'</span><span class="p">);</span>
+<span class="nv">$stack</span><span class="o">-&gt;</span><span class="na">addStatic</span><span class="p">(</span><span class="mi">120</span><span class="p">);</span>
+<span class="nv">$stack</span><span class="o">-&gt;</span><span class="na">addOperator</span><span class="p">(</span><span class="s1">'&gt;'</span><span class="p">);</span>
 
-$stack-&gt;addOperator('or');
-$stack-&gt;addOperator('and');
+<span class="nv">$stack</span><span class="o">-&gt;</span><span class="na">addOperator</span><span class="p">(</span><span class="s1">'or'</span><span class="p">);</span>
+<span class="nv">$stack</span><span class="o">-&gt;</span><span class="na">addOperator</span><span class="p">(</span><span class="s1">'and'</span><span class="p">);</span>
 
 
-$rule = new EngineRule();
-$result = $rule-&gt;execute($stack);
-</code></pre>
-
-<h3>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<span class="nv">$rule</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">EngineRule</span><span class="p">();</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$rule</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">(</span><span class="nv">$stack</span><span class="p">);</span>
+</pre></div>
 
 <h3>Authors and Contributors</h3>
 
-<p><a href="https://github.com/jimmyy" class="user-mention">@jimmyy</a> and <a href="https://github.com/s" class="user-mention">@s</a></p>
+<p><a href="https://github.com/jimmyy" class="user-mention">@jimmyy</a> and @ samipnt</p>
 
 <h3>Support or Contact</h3>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p>Having trouble with Pages? Contact <a href="mailto:contact@appydo.com">contact@appydo.com</a> and we’ll help you sort it out.</p>
       </section>
     </div>
 

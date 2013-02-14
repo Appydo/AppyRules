@@ -10,41 +10,56 @@
 namespace AppyRules;
 
 class Stack {
-    private $stack;
     
-    private $type;
-    private $value;
-    private $description;
+    private $stack;
 
     function __construct() {
         $this->stack = array();
     }
 
-    public function add($atom) {
+    public function addOperator($value) {
+        
+        $atom = new Atom();
+        $atom->setType('operator');
+        $atom->setValue($value);
+        
         return ($this->stack[] = $atom);
+
+    }
+    
+    public function addVar($value) {
+        
+        $atom = new Atom();
+        $atom->setType('var');
+        $atom->setValue($value);
+        
+        return ($this->stack[] = $atom);
+
+    }
+    
+    public function addStatic($value) {
+        
+        $atom = new Atom();
+        $atom->setType('static');
+        $atom->setValue($value);
+        
+        return ($this->stack[] = $atom);
+
     }
 
     public function get($position = 0) {
+
         if (!empty($this->stack)) {
             return $this->stack[$position];
         } else {
             return false;
         }
-    }
 
+    }
+    
+        
     public function getCurrentPosition() {
         return count($this->stack);
     }
-    
-    public function setDescription($description) {
-        $this->description = $description;
-    }
-    
-    public function setValue($value) {
-        $this->description = $description;
-    }
-    
-    public function setType($type) {
-        $this->type = $type;
-    }
+
 }

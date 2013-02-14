@@ -1,4 +1,33 @@
 <?php
+
+use AppyRules;
+
+$stack = new Stack();
+
+$stack->addVar('price');
+$stack->addStatic(180);
+$stack->addOperator('>');
+
+$stack->addVar('weight');
+$stack->addStatic(180);
+$stack->addOperator('>');
+
+$stack->addVar('price');
+$stack->addStatic(120);
+$stack->addOperator('>');
+
+$stack->addVar('price');
+$stack->addStatic(120);
+$stack->addOperator('>');
+
+$stack->addOperator('or');
+$stack->addOperator('and');
+
+
+$rule = new EngineRule();
+$result = $rule($stack);
+
+
 $vars['price']  = 100;
 $vars['weight'] = 150;
 

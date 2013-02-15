@@ -35,32 +35,31 @@
 
 <p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
 
-<div class="highlight"><pre><span class="k">use</span> <span class="nx">AppyRules</span><span class="p">;</span>
+<div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
 
-<span class="nv">$stack</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stack</span><span class="p">();</span>
-
-<span class="nv">$stack</span><span class="o">-&gt;</span><span class="na">addVar</span><span class="p">(</span><span class="s1">'price'</span><span class="p">);</span>
-<span class="nv">$stack</span><span class="o">-&gt;</span><span class="na">addStatic</span><span class="p">(</span><span class="mi">180</span><span class="p">);</span>
-<span class="nv">$stack</span><span class="o">-&gt;</span><span class="na">addOperator</span><span class="p">(</span><span class="s1">'&gt;'</span><span class="p">);</span>
-
-<span class="nv">$stack</span><span class="o">-&gt;</span><span class="na">addVar</span><span class="p">(</span><span class="s1">'weight'</span><span class="p">);</span>
-<span class="nv">$stack</span><span class="o">-&gt;</span><span class="na">addStatic</span><span class="p">(</span><span class="mi">180</span><span class="p">);</span>
-<span class="nv">$stack</span><span class="o">-&gt;</span><span class="na">addOperator</span><span class="p">(</span><span class="s1">'&gt;'</span><span class="p">);</span>
-
-<span class="nv">$stack</span><span class="o">-&gt;</span><span class="na">addVar</span><span class="p">(</span><span class="s1">'price'</span><span class="p">);</span>
-<span class="nv">$stack</span><span class="o">-&gt;</span><span class="na">addStatic</span><span class="p">(</span><span class="mi">120</span><span class="p">);</span>
-<span class="nv">$stack</span><span class="o">-&gt;</span><span class="na">addOperator</span><span class="p">(</span><span class="s1">'&gt;'</span><span class="p">);</span>
-
-<span class="nv">$stack</span><span class="o">-&gt;</span><span class="na">addVar</span><span class="p">(</span><span class="s1">'price'</span><span class="p">);</span>
-<span class="nv">$stack</span><span class="o">-&gt;</span><span class="na">addStatic</span><span class="p">(</span><span class="mi">120</span><span class="p">);</span>
-<span class="nv">$stack</span><span class="o">-&gt;</span><span class="na">addOperator</span><span class="p">(</span><span class="s1">'&gt;'</span><span class="p">);</span>
-
-<span class="nv">$stack</span><span class="o">-&gt;</span><span class="na">addOperator</span><span class="p">(</span><span class="s1">'or'</span><span class="p">);</span>
-<span class="nv">$stack</span><span class="o">-&gt;</span><span class="na">addOperator</span><span class="p">(</span><span class="s1">'and'</span><span class="p">);</span>
-
+<span class="k">use</span> <span class="nx">AppyRules</span><span class="p">;</span>
 
 <span class="nv">$rule</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">EngineRule</span><span class="p">();</span>
-<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$rule</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">(</span><span class="nv">$stack</span><span class="p">);</span>
+
+<span class="nv">$rule</span><span class="o">-&gt;</span><span class="na">LogicalAnd</span><span class="p">(</span>
+    <span class="nv">$rule</span><span class="o">-&gt;</span><span class="na">LogicalOr</span><span class="p">(</span>
+        <span class="nv">$rule</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'price'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">equalTo</span><span class="p">(</span><span class="s1">'value2'</span><span class="p">),</span>
+        <span class="nv">$rule</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'price'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">equalTo</span><span class="p">(</span><span class="s1">'value2'</span><span class="p">)</span>
+    <span class="p">),</span>
+    <span class="nv">$rule</span><span class="o">-&gt;</span><span class="na">LogicalAnd</span><span class="p">(</span>
+        <span class="nv">$rule</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'price'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">equalTo</span><span class="p">(</span><span class="s1">'value2'</span><span class="p">),</span>
+        <span class="nv">$rule</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'price'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">equalTo</span><span class="p">(</span><span class="s1">'value2'</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">);</span>
+
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$rule</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">(</span>
+        <span class="k">array</span><span class="p">(</span>
+            <span class="s1">'price'</span>  <span class="o">=&gt;</span> <span class="mi">100</span><span class="p">,</span>
+            <span class="s1">'weight'</span> <span class="o">=&gt;</span> <span class="mi">120</span><span class="p">,</span>
+            <span class="s1">'value1'</span> <span class="o">=&gt;</span> <span class="mi">120</span><span class="p">,</span>
+            <span class="s1">'value2'</span> <span class="o">=&gt;</span> <span class="mi">200</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">);</span>
 </pre></div>
 
 <h3>Authors and Contributors</h3>

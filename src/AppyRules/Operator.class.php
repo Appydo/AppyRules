@@ -9,50 +9,84 @@
 
 namespace AppyRules;
 
-class Operator {
+class Operator extends Stack {
+    
+    public function Equal($value) {
+        
+        $this->stack[] = new Logical('=');
+        
+        $this->stack->get($value);
+        
+    }
 
     public function LogicalAnd($a, $b) {
-        return ($a and $b);
+        
+        $this->stack[] = new Logical('and');
+        
     }
 
-    public function LogicalOr($a, $b) {
-        return ($a or $b);
+    public function LogicalOr($a = true, $b = true) {
+        
+        $this->stack[] = new Logical('or');
+
     }
     
-    public function LogicalXor($a, $b) {
-        return ($a ^ $b);
+    public function LogicalXor($a = true, $b = true) {
+        
+        $this->stack[] = new Logical('xor');
+
     }
     
-    public function LogicalNand($a, $b) {
-        return !($a and $b);
+    public function LogicalNand($a = true, $b = true) {
+
+        $this->stack[] = new Logical('nand');
+
     }
     
-    public function LogicalNor($a, $b) {
-        return !($a or $b);
+    public function LogicalNor($a = true, $b = true) {
+        
+        $this->stack[] = new Logical('nor');
+        
     }
 
-    public function Equal($a, $b) {
-        return $a == $b;
+    public function Lesser($value) {
+        
+        $this->stack[] = new Logical('<');
+        
+        $this->stack->get($value);
+        
     }
+    
+    public function EqualOrLesser($value) {
+        
+        $this->stack[] = new Logical('<=');
+        
+        $this->stack->get($value);
+        
+    }
+    
+    public function Greater($value) {
+        
+        $this->stack[] = new Logical('>');
+        
+        $this->stack->get($value);
+        
+    }
+    
+    public function EqualOrGreater($value) {
 
-    public function Lesser($a, $b) {
-        return ($a < $b);
+        $this->stack[] = new Logical('=>');
+        
+        $this->stack->get($value);
+        
     }
     
-    public function EqualOrLesser($a, $b) {
-        return ($a <= $b);
-    }
-    
-    public function Greater($a, $b) {
-        return ($a > $b);
-    }
-    
-    public function EqualOrGreater($a, $b) {
-        return ($a >= $b);
-    }
-    
-    public function NotEqual($a, $b) {
-        return ($a != $b);
+    public function NotEqual($value) {
+
+        $this->stack[] = new Logical('!=');
+        
+        $this->stack->get($value);
+        
     }
 
 }

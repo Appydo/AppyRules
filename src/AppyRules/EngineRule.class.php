@@ -16,13 +16,13 @@ class EngineRule {
         $this->pointer = 0;
     }
 
-    public function execute($stack) {
+    public function execute($stack, $context) {
         
         $buffer  = $this->buffer;
         $pointer = $this->pointer;
         
         foreach ($stack as $atom) {
-            if ($atom[0] == 'operator') {
+            if ($atom[0]->isLogical()) {
 
                 $pointer = $pointer - 2;
                 $a = $buffer[$pointer];

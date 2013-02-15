@@ -9,29 +9,27 @@
 
 namespace AppyRules;
 
-class Atom {
+class Logical {
     
-    private $type;
-    private $value;
+    private $operator;
 
     function __construct() {
-        $this->type = 0; // 0 = static, 1 = var, 2 = operator
     }
 
     public function isAtom() {
-        return true;
+        return false;
     }
     
     public function isLogical() {
-        return false;
+        return true;
     }
     
     public function getValue() {
         return $this->value;
     }
     
-    public function setValue($value) {
-        $this->value = $value;
+    public function setOperator($operator) {
+        $this->operator = $operator;
     }
     
     

@@ -1,31 +1,38 @@
 <?php
 
+//   ( A or B ) and ( ( C and D ) or ( E and F ) )
+
 use AppyRules;
 
 $stack = new Stack();
 
-$stack->addVar('price');
-$stack->addStatic(180);
-$stack->addOperator('>');
+$stack->LogicalOr(
+    $stack->get('price')->equalTo('value2'),
+    $stack->get('price')->equalTo('value2')
+);
 
-$stack->addVar('weight');
-$stack->addStatic(180);
-$stack->addOperator('>');
+$stack->get('price')->equalTo('value2');
+$stack->get('price')->equalTo('value2');
+$stack->LogicalAnd();
 
-$stack->addVar('price');
-$stack->addStatic(120);
-$stack->addOperator('>');
+$E  = $stack->get('price')->equalTo('value2');
+$F  = $stack->get('price')->equalTo('value2');
+$EF = $stack->LogicalOr($E, $F);
 
-$stack->addVar('price');
-$stack->addStatic(120);
-$stack->addOperator('>');
-
-$stack->addOperator('or');
-$stack->addOperator('and');
-
+$CDEF   = $stack->LogicalOr($CD, $EF);
+$ABCDEF = $stack->LogicalAnd($AB, $CDEF);
 
 $rule = new EngineRule();
-$result = $rule($stack);
+$result = $rule->execute(
+        $stack,
+        array(
+            'price'  => 100,
+            'weight' => 120,
+            'value1' => 120,
+            'value2' => 200,
+        )
+    );
+
 
 
 $vars['price']  = 100;

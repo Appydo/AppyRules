@@ -9,55 +9,24 @@
 
 namespace AppyRules;
 
-class Stack {
+class Stack extends \AppyRules\Operator {
     
     private $stack;
+    private $value;
 
     function __construct() {
         $this->stack = array();
     }
 
-    public function addOperator($value) {
+    public function get($value) {
         
         $atom = new Atom();
-        $atom->setType('operator');
         $atom->setValue($value);
         
-        return ($this->stack[] = $atom);
+        $this->stack[] = $atom;
 
     }
-    
-    public function addVar($value) {
-        
-        $atom = new Atom();
-        $atom->setType('var');
-        $atom->setValue($value);
-        
-        return ($this->stack[] = $atom);
-
-    }
-    
-    public function addStatic($value) {
-        
-        $atom = new Atom();
-        $atom->setType('static');
-        $atom->setValue($value);
-        
-        return ($this->stack[] = $atom);
-
-    }
-
-    public function get($position = 0) {
-
-        if (!empty($this->stack)) {
-            return $this->stack[$position];
-        } else {
-            return false;
-        }
-
-    }
-    
-        
+   
     public function getCurrentPosition() {
         return count($this->stack);
     }
